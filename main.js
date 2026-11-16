@@ -1,4 +1,4 @@
-// PACT Vertical, site script v2.1 (2026-11-16)
+// PACT Vertical, site script v2.2 (2026-11-16)
 {
   const root = document.documentElement;
   root.classList.add('js');
@@ -101,78 +101,5 @@
       });
       btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
     });
-  }
-
-  // Hero canvas: logo-style nodes rising and linking, like a live blueprint
-  const canvas = document.querySelector('.hero-canvas');
-  if (canvas && !reduce && canvas.getContext) {
-    const ctx = canvas.getContext('2d');
-    let W = 0, H = 0, dpr = 1, nodes = [], mouse = { x: -9999, y: -9999 }, running = true;
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = canvas.clientWidth; H = canvas.clientHeight;
-      canvas.width = W * dpr; canvas.height = H * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.round(Math.min(34, Math.max(14, W * H / 42000)));
-      nodes = Array.from({ length: n }, () => make(Math.random() * H));
-    };
-    const make = yStart => ({
-      x: Math.random() * W,
-      y: yStart,
-      s: 3 + Math.random() * 5,
-      v: .03 + Math.random() * .06,
-      red: Math.random() < .35,
-      a: .18 + Math.random() * .35
-    });
-    const LINK = 170;
-    const frame = () => {
-      if (!running) return;
-      ctx.clearRect(0, 0, W, H);
-      for (const p of nodes) {
-        p.y -= p.v;
-        if (p.y < -20) Object.assign(p, make(H + 20));
-      }
-      for (let i = 0; i < nodes.length; i++) {
-        const a = nodes[i];
-        for (let j = i + 1; j < nodes.length; j++) {
-          const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
-          if (d < LINK) {
-            const red = a.red && b.red;
-            ctx.strokeStyle = red ? `rgba(194,65,63,${(1 - d / LINK) * .3})` : `rgba(156,156,156,${(1 - d / LINK) * .12})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            // right-angle links, like the logo's square edges
-            ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, a.y); ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
-      }
-      for (const p of nodes) {
-        const dm = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        const boost = dm < 160 ? (1 - dm / 160) * .5 : 0;
-        const s = p.s * (1 + boost * .9);
-        ctx.fillStyle = p.red ? `rgba(194,65,63,${Math.min(1, p.a + boost)})` : `rgba(156,156,156,${Math.min(1, p.a * .8 + boost)})`;
-        ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
-        if (p.red && p.s > 6) {
-          ctx.strokeStyle = `rgba(194,65,63,${p.a * .5})`;
-          ctx.strokeRect(p.x - s * 2.2, p.y - s * 2.2, s * 4.4, s * 4.4);
-        }
-      }
-      requestAnimationFrame(frame);
-    };
-    window.addEventListener('resize', resize);
-    canvas.parentElement.addEventListener('pointermove', e => {
-      const r = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
-    });
-    canvas.parentElement.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(([e]) => {
-        const was = running; running = e.isIntersecting;
-        if (running && !was) requestAnimationFrame(frame);
-      }).observe(canvas);
-    }
-    resize();
-    requestAnimationFrame(frame);
   }
 }

@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 2.1 · **Date:** 2026-11-16 · Draft for review
+**Version:** 2.2 · **Date:** 2026-11-16 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -75,6 +75,10 @@ Nothing else was added.
 ## Still open
 
 - **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
+
+## Changes in v2.2
+
+- Removed the moving squares and the grid from the hero background. It is now a still, smooth dark-to-maroon glow. All other motion is unchanged.
 
 ## Changes in v2.1
 
