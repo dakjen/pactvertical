@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 1.1 · **Date:** 2026-11-16 · Draft for review
+**Version:** 1.2 · **Date:** 2026-11-16 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -12,7 +12,7 @@ A static, single-page site for PACT Vertical, LLC. There is no build step and no
 | `styles.css` | All styling |
 | `main.js` | Mobile menu, scroll reveals, footer year |
 | `404.html` | Not-found page |
-| `assets/favicon.svg` | Browser tab icon |
+| `assets/` | Logo files and favicon |
 | `vercel.json` | Clean URLs, security headers, asset caching |
 | `robots.txt`, `sitemap.xml` | Search engine basics |
 
@@ -33,23 +33,33 @@ To preview locally, run `npx serve .` or open `index.html` in a browser.
 
 ## Brand
 
-Colors were sampled directly from the current pactvertical.com logo and graphics:
+All colors are sampled from the PACT Vertical logo files:
 
-| Role | Hex |
-|---|---|
-| Primary (logo maroon) | `#852A29` |
-| Mission band red | `#E62739` |
-| Logo grey | `#999999` |
-| Headings / body text | `#333333` / `#555555` |
-| Backgrounds | `#FFFFFF`, `#F5F5F5`, `#1C1C1C` |
+| Role | Hex | Where it comes from |
+|---|---|---|
+| Primary maroon | `#882B2B` | Logo squares |
+| Deep oxblood | `#60120B` | "Partners, Advisors, Contractors, Technicians" ring text |
+| Charcoal | `#404040` | "PACT" lettering |
+| Grey | `#8C8C8C` | "VERTICAL" lettering |
+| Light grey | `#9C9C9C` | Grey squares |
 
-Fonts match the current site: Raleway for headings and Open Sans for body text. The wordmark uses Bodoni Moda, chosen to resemble the logo's serif lettering.
+Fonts: Raleway for headings, Open Sans for body text (both match the current site), and Bodoni Moda for the header wordmark.
 
-**Logo:** `assets/pact-mark.svg` is a hand-drawn approximation of the PACT Vertical mark. Replace it with the original logo file (SVG or high-resolution PNG) before launch.
+**Logo files** (in `assets/`, all made from the original logo):
+- `pact-vertical-logo.png`: the full circular logo, used in the Experience section
+- `pact-lockup.png`: the mark with "PACT VERTICAL", without the ring text (not used yet; available for social or OG images)
+- `pact-mark.png`: the squares only, used in the header
+- `favicon.png`: the browser tab icon
 
 ## Content sources
 
 All copy comes from the current pactvertical.com page: the experience paragraph, the four assets, the "Verticality" statement, the mission statement, and the "Partners, Advisors, Contractors, Technicians / 4:1 four assets in one" banner. The contact details are the PACT Vertical address, phone, and email already on file. Nothing else was added.
+
+## Changes in v1.2
+
+- Uses the original PACT Vertical logo files in place of the redrawn mark.
+- Palette taken exactly from the logo. The bright red mission band is now the logo maroon, and the footer is the deep oxblood.
+- The full circular logo now sits beside the Experience section.
 
 ## Changes in v1.1
 
@@ -65,11 +75,10 @@ Every placeholder is marked `[INSERT: …]` and shows on the page with amber hat
 
 1. **Hero photo** (and its alt text). The current site's black-and-white header image can be reused.
 2. **Mission photo.** The collage from the current mission banner.
-3. **Original logo file** (see Brand above).
-4. **Four Assets descriptions.** One or two sentences each for Partnership, Advising & Counseling, Vetted Contractors, and Top Technicians.
-5. **Services descriptions** for Development, Design, and Construction Management.
-6. **Selected Projects.** Name, photo, location, type, and PACT Vertical's role for each (three cards; add or remove as needed).
-7. **Leadership.** Gina Merritt's title and bio, plus any other team members to list.
+3. **Four Assets descriptions.** One or two sentences each for Partnership, Advising & Counseling, Vetted Contractors, and Top Technicians.
+4. **Services descriptions** for Development, Design, and Construction Management.
+5. **Selected Projects.** Name, photo, location, type, and PACT Vertical's role for each (three cards; add or remove as needed).
+6. **Leadership.** Gina Merritt's title and bio, plus any other team members to list.
 
 ## Please confirm
 

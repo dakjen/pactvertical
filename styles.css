@@ -1,13 +1,14 @@
-/* PACT Vertical, site styles v1.1 (2026-11-16). Palette sampled from pactvertical.com */
+/* PACT Vertical, site styles v1.2 (2026-11-16). Palette sampled from the PACT Vertical logo files */
 :root {
-  --maroon: #852A29;      /* logo mark */
-  --maroon-dark: #6B2120;
-  --red: #E62739;         /* mission banner */
-  --charcoal: #333333;    /* headings */
-  --ink: #1C1C1C;         /* dark sections */
-  --text: #555555;        /* body copy */
-  --grey: #777777;
-  --grey-mid: #999999;    /* logo secondary square */
+  /* Logo colors */
+  --maroon: #882B2B;      /* logo squares */
+  --maroon-dark: #60120B; /* "Partners, Advisors..." ring text */
+  --charcoal: #404040;    /* "PACT" lettering, headings */
+  --grey: #8C8C8C;        /* "VERTICAL" lettering */
+  --grey-mid: #9C9C9C;    /* grey squares */
+  /* Neutrals */
+  --ink: #262626;
+  --text: #555555;
   --grey-light: #E9E9E9;
   --grey-faint: #F5F5F5;
   --white: #FFFFFF;
@@ -43,7 +44,7 @@ p { margin: 0 0 1em; }
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--line); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand-mark { width: 40px; height: 40px; }
+.brand-mark { width: 46px; height: auto; }
 .brand-words { display: flex; flex-direction: column; line-height: 1; }
 .brand-pact { font-family: var(--serif); font-size: 1.6rem; letter-spacing: 0.22em; color: var(--charcoal); }
 .brand-vertical { font-family: var(--serif); font-size: 0.72rem; letter-spacing: 0.52em; color: var(--grey); margin-top: 3px; }
@@ -83,10 +84,10 @@ p { margin: 0 0 1em; }
 .section-dark .eyebrow { color: #D9A3A2; }
 
 /* Experience */
-.exp-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
-.stats { border-left: 4px solid var(--maroon); }
-.stat { padding: 20px 0 20px 28px; border-bottom: 1px solid var(--line); }
-.stat:last-child { border-bottom: 0; }
+.exp-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: center; }
+.exp-logo img { width: 100%; height: auto; max-width: 420px; margin-inline: auto; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; border-top: 4px solid var(--maroon); }
+.stat { padding-top: 20px; }
 .stat-num { display: block; font-family: var(--head); font-size: 3.2rem; font-weight: 700; line-height: 1; color: var(--maroon); }
 .stat-label { display: block; color: var(--grey); margin-top: 6px; font-size: 0.95rem; }
 
@@ -113,8 +114,8 @@ p { margin: 0 0 1em; }
 .vert-bars li:nth-child(2) { transition-delay: .1s; }
 .vert-bars li:nth-child(3) { transition-delay: .2s; }
 
-/* Mission: red band as on the current site */
-.mission { background: var(--red); color: var(--white); }
+/* Mission: maroon band */
+.mission { background: var(--maroon); color: var(--white); }
 .mission-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: center; padding: 72px 0; }
 .mission-photo { aspect-ratio: 4 / 5; background: #2b2b2b; display: grid; place-items: center; filter: grayscale(1); }
 .mission-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -146,7 +147,7 @@ p { margin: 0 0 1em; }
 .contact-list a:hover { color: #D9A3A2; }
 
 /* Footer */
-.site-footer { background: #000; color: rgba(255,255,255,.6); font-size: 0.85rem; }
+.site-footer { background: var(--maroon-dark); color: rgba(255,255,255,.6); font-size: 0.85rem; }
 .footer-inner { display: flex; justify-content: space-between; padding: 24px 0; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--white); }
@@ -161,6 +162,9 @@ p { margin: 0 0 1em; }
 
 /* Responsive */
 @media (max-width: 960px) {
+  .stats { grid-template-columns: 1fr; gap: 0; }
+  .stat { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .exp-logo img { max-width: 300px; }
   .exp-grid, .vert, .lead-grid, .contact, .mission-inner { grid-template-columns: 1fr; gap: 40px; }
   .pact-grid { grid-template-columns: repeat(2, 1fr); }
   .services, .projects { grid-template-columns: 1fr; }
