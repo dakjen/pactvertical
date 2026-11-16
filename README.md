@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 2.2 · **Date:** 2026-11-16 · Draft for review
+**Version:** 3.0 · **Date:** 2026-11-16 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -45,11 +45,11 @@ All colors are sampled from the PACT Vertical logo files:
 
 Fonts (v2.0): Manrope for headings and body, JetBrains Mono for small labels, and Bodoni Moda for the header wordmark.
 
-The dark design adds a lit maroon (`#C2413F`) for glows and highlights. It is a brighter tint of the logo maroon.
+v3.0 adds a steel neutral scale (`#F4F5F6` to `#2E3338` graphite) alongside the logo colors.
 
 **Logo files** (in `assets/`, all made from the original logo):
 - `pact-vertical-logo.png`: the full circular logo, original colors, for light backgrounds
-- `pact-vertical-logo-dark.png`: the full circular logo recolored for dark backgrounds, used in the Experience section
+- `pact-vertical-logo-dark.png`: the full circular logo recolored for dark backgrounds (used in v2.1–2.2; kept for dark materials) (v3.0)
 - `pact-lockup.png`: the mark with "PACT VERTICAL", without the ring text (not used yet; available for social or OG images)
 - `pact-mark.png`: the squares only, used in the header
 - `favicon.png`: the browser tab icon
@@ -75,6 +75,14 @@ Nothing else was added.
 ## Still open
 
 - **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
+
+## Changes in v3.0 (steel redesign)
+
+- New look: light brushed-steel and graphite instead of dark red. Logo maroon is now used only as an accent (buttons, the tallest beam, labels). No glows or gradient effects.
+- New hero: steel I-beam columns rise like a building going up, girders span across them, and the logo mark draws itself on top of the tallest (maroon) column.
+- Graphite bands for the skills ticker, the mission statement, and the footer.
+- Experience section uses the original-color logo again (light background).
+- Kept: the rising title, the rotating "We are your…" words, count-up stats, card hover lift, the animated Verticality chart, and scroll reveals.
 
 ## Changes in v2.2
 
