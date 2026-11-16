@@ -1,4 +1,4 @@
-// PACT Vertical, site script v1.0 (2026-11-16)
+// PACT Vertical, site script v1.1 (2026-11-16)
 document.documentElement.classList.add('js');
 
 // Mobile nav
