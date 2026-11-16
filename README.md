@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 1.2 · **Date:** 2026-11-16 · Draft for review
+**Version:** 1.3 · **Date:** 2026-11-16 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -53,7 +53,32 @@ Fonts: Raleway for headings, Open Sans for body text (both match the current sit
 
 ## Content sources
 
-All copy comes from the current pactvertical.com page: the experience paragraph, the four assets, the "Verticality" statement, the mission statement, and the "Partners, Advisors, Contractors, Technicians / 4:1 four assets in one" banner. The contact details are the PACT Vertical address, phone, and email already on file. Nothing else was added.
+- **Current pactvertical.com:** the banner ("Partners, Advisors, Contractors, Technicians / 4:1 four assets in one"), the four assets, Verticality, and the mission statement.
+- **Box, "PACT Vertical Narrative GM edits.docx":** the Experience section (founded January 2021, 25+ years, NREUV's $150M+ in DMV projects over 15 years), the skills list, and the three Prince George's County projects in pre-development.
+- **Box, "Gina M Resume - PACT Vertical, LLC.docx":** the service descriptions, Gina's bio, education, awards, and the project experience list.
+- **Contact details:** the PACT Vertical address, phone, and email on file.
+
+Nothing else was added.
+
+## Please confirm before launch
+
+1. **Founding year.** The narrative PDF says January **2020**; your edited narrative (docx) says January **2021**. The site uses 2021.
+2. **Office address.** The site shows 9183A Central Avenue, Capitol Heights, MD 20743, but your résumé header says Greenbelt, MD.
+3. **Project experience.** These are Gina's career projects (most through NREUV), and the site labels them that way. They are not PACT Vertical contracts.
+4. **Unit and cost totals.** The résumé has two conflicting versions (7,500 units / $2B and 3,000 units / $550M), so neither is on the site.
+5. **NREUV link.** The site links to https://nreuv.com.
+6. **Contact button.** It opens the visitor's email app. A form would need a service such as Formspree.
+
+## Still open
+
+- **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
+- **Hero photo.** The hero uses a dark striped background. To use a photo instead, add it to `assets/` and set it as `.hero-photo` content.
+
+## Changes in v1.3
+
+- Content filled in from Box: experience, services, skills, project experience, and leadership bio.
+- The mission section shows the logo.
+- Asset paths are now relative, so the site works on Vercel and in any subfolder.
 
 ## Changes in v1.2
 
@@ -68,23 +93,6 @@ All copy comes from the current pactvertical.com page: the experience paragraph,
 - The Verticality section now uses the site's actual wording.
 - Hero now uses the site's banner content: "PACT Vertical / Partners, Advisors, Contractors, Technicians / 4:1 four assets in one."
 - Added the logo mark.
-
-## Before launch: placeholders to fill
-
-Every placeholder is marked `[INSERT: …]` and shows on the page with amber hatching, so it is easy to find. Search `index.html` for `INSERT`.
-
-1. **Hero photo** (and its alt text). The current site's black-and-white header image can be reused.
-2. **Mission photo.** The collage from the current mission banner.
-3. **Four Assets descriptions.** One or two sentences each for Partnership, Advising & Counseling, Vetted Contractors, and Top Technicians.
-4. **Services descriptions** for Development, Design, and Construction Management.
-5. **Selected Projects.** Name, photo, location, type, and PACT Vertical's role for each (three cards; add or remove as needed).
-6. **Leadership.** Gina Merritt's title and bio, plus any other team members to list.
-
-## Please confirm
-
-- The office address, phone, and email are public on the site. Confirm they should be.
-- The NREUV link points to `https://nreuv.com`. Confirm the URL.
-- The contact button opens the visitor's email app (`mailto:`). If you want a form instead, Vercel needs a form service such as Formspree. That would be a v1.1 change.
 
 ## Adding images
 
