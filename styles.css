@@ -97,7 +97,7 @@ p { margin: 0 0 1em; }
   mask-image: linear-gradient(to top, #000 20%, transparent 90%);
 }
 .hero-inner { position: relative; align-self: center; padding: 96px 0; width: auto; margin-left: max(24px, calc((100vw - var(--wrap)) / 2)); margin-right: 48px; }
-.hero h1 { font-size: clamp(3.6rem, 9vw, 7.5rem); font-weight: 800; text-transform: uppercase; margin-bottom: 0.35em; }
+.hero h1 { font-size: clamp(3.4rem, 7.5vw, 7rem); font-weight: 800; text-transform: uppercase; margin-bottom: 0.35em; }
 .hero h1 span { color: var(--amber); }
 .lede { font-size: 1.15rem; max-width: 34em; color: rgba(245,242,236,.82); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 2rem; }
