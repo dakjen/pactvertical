@@ -1,4 +1,4 @@
-// PACT Vertical, site script v2.0 (2026-11-16)
+// PACT Vertical, site script v2.1 (2026-11-16)
 {
   const root = document.documentElement;
   root.classList.add('js');
@@ -113,18 +113,18 @@
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.round(Math.min(70, Math.max(26, W * H / 22000)));
+      const n = Math.round(Math.min(34, Math.max(14, W * H / 42000)));
       nodes = Array.from({ length: n }, () => make(Math.random() * H));
     };
     const make = yStart => ({
       x: Math.random() * W,
       y: yStart,
       s: 3 + Math.random() * 5,
-      v: .15 + Math.random() * .45,
+      v: .03 + Math.random() * .06,
       red: Math.random() < .35,
-      a: .25 + Math.random() * .55
+      a: .18 + Math.random() * .35
     });
-    const LINK = 150;
+    const LINK = 170;
     const frame = () => {
       if (!running) return;
       ctx.clearRect(0, 0, W, H);
@@ -138,7 +138,7 @@
           const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
           if (d < LINK) {
             const red = a.red && b.red;
-            ctx.strokeStyle = red ? `rgba(194,65,63,${(1 - d / LINK) * .55})` : `rgba(156,156,156,${(1 - d / LINK) * .22})`;
+            ctx.strokeStyle = red ? `rgba(194,65,63,${(1 - d / LINK) * .3})` : `rgba(156,156,156,${(1 - d / LINK) * .12})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             // right-angle links, like the logo's square edges
@@ -149,7 +149,7 @@
       }
       for (const p of nodes) {
         const dm = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        const boost = dm < 180 ? 1 - dm / 180 : 0;
+        const boost = dm < 160 ? (1 - dm / 160) * .5 : 0;
         const s = p.s * (1 + boost * .9);
         ctx.fillStyle = p.red ? `rgba(194,65,63,${Math.min(1, p.a + boost)})` : `rgba(156,156,156,${Math.min(1, p.a * .8 + boost)})`;
         ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
