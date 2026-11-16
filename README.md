@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 1.3 · **Date:** 2026-11-16 · Draft for review
+**Version:** 2.0 · **Date:** 2026-11-16 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -43,7 +43,9 @@ All colors are sampled from the PACT Vertical logo files:
 | Grey | `#8C8C8C` | "VERTICAL" lettering |
 | Light grey | `#9C9C9C` | Grey squares |
 
-Fonts: Raleway for headings, Open Sans for body text (both match the current site), and Bodoni Moda for the header wordmark.
+Fonts (v2.0): Manrope for headings and body, JetBrains Mono for small labels, and Bodoni Moda for the header wordmark.
+
+The dark design adds a lit maroon (`#C2413F`) for glows and highlights. It is a brighter tint of the logo maroon.
 
 **Logo files** (in `assets/`, all made from the original logo):
 - `pact-vertical-logo.png`: the full circular logo, used in the Experience section
@@ -72,7 +74,14 @@ Nothing else was added.
 ## Still open
 
 - **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
-- **Hero photo.** The hero uses a dark striped background. To use a photo instead, add it to `assets/` and set it as `.hero-photo` content.
+
+## Changes in v2.0 (redesign)
+
+- Dark, modern, high-tech look in the logo colors: near-black backgrounds, logo maroon (`#882B2B`) with a lit maroon (`#C2413F`) for glows, and the logo greys.
+- Animated hero: a live "blueprint" of logo-style nodes rising and linking (they react to the cursor), the logo mark drawing itself, the "PACT Vertical" title rising in, and a rotating word (Partners, Advisors, Contractors, Technicians).
+- Scrolling skills ticker, count-up stats, cards that light up under the cursor, a tilting logo panel, Verticality bars and a trend line that animate on scroll, a moving grid in the mission band, and a scroll-progress bar.
+- New fonts: Manrope, plus JetBrains Mono for labels. The wordmark stays Bodoni Moda.
+- All motion turns off for visitors who set "reduce motion" on their device.
 
 ## Changes in v1.3
 
