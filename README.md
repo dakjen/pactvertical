@@ -48,7 +48,8 @@ Fonts (v2.0): Manrope for headings and body, JetBrains Mono for small labels, an
 The dark design adds a lit maroon (`#C2413F`) for glows and highlights. It is a brighter tint of the logo maroon.
 
 **Logo files** (in `assets/`, all made from the original logo):
-- `pact-vertical-logo.png`: the full circular logo, used in the Experience section
+- `pact-vertical-logo.png`: the full circular logo, original colors, for light backgrounds
+- `pact-vertical-logo-dark.png`: the full circular logo recolored for dark backgrounds, used in the Experience section
 - `pact-lockup.png`: the mark with "PACT VERTICAL", without the ring text (not used yet; available for social or OG images)
 - `pact-mark.png`: the squares only, used in the header
 - `favicon.png`: the browser tab icon
@@ -78,6 +79,7 @@ Nothing else was added.
 ## Changes in v2.1
 
 - Calmer hero background: the grid is still, there are fewer nodes, they drift much more slowly, and the links between them are fainter. The mission band grid no longer moves either.
+- The Experience logo no longer sits on a white panel. It uses a new light-on-dark version, `assets/pact-vertical-logo-dark.png`, with white "PACT", light grey "VERTICAL", and lit maroon ring text. The squares stay the original colors.
 
 ## Changes in v2.0 (redesign)
 
