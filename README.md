@@ -78,6 +78,10 @@ Nothing else was added.
 
 ## Changes in v3.1 (2026-11-18)
 
+- Leadership updated from drginamerritt.net: "Dr. Gina Merritt, MBA", 30+ years in real estate, $2B+ in deals, $310M+ raised since 2021, 800+ affordable units and 19 buildings across D.C., MD, and OH, Bronx and Wall Street background, Inc. 5000 (#730 nationally, #12 in D.C.), and the DCRE Pioneer Award. Added a link to drginamerritt.net.
+- Added DesignDomain LLC (design services, designdomainllc.com, as listed on drginamerritt.net) to the Affiliates box.
+- Added NREUV Advisors, LLC to the Affiliates box. It still needs a one-line description and a website link if it has one.
+
 - Real photography replaces all drawn graphics. The steel-beam drawing in the hero and the bar chart in Verticality are gone.
   - Hero: looking up at a steel-framed tower (`assets/hero-tower.jpg`), revealed upward once on load and then still.
   - Full-width band after Services: aerial job site (`assets/site-aerial.jpg`).
