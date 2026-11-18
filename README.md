@@ -64,6 +64,7 @@ v3.0 adds a steel neutral scale (`#F4F5F6` to `#2E3338` graphite) alongside the 
 - **Box, "PACT Vertical Narrative GM edits.docx":** the Experience section (founded January 2021, 25+ years, NREUV's $150M+ in DMV projects over 15 years), the skills list, and the three Prince George's County projects in pre-development.
 - **Box, "Gina M Resume - PACT Vertical, LLC.docx":** the service descriptions, Gina's bio, education, awards, and the project experience list.
 - **Contact details:** the PACT Vertical address, phone, and email on file.
+- **Gina's portrait:** `assets/gina-merritt.jpg`, cropped from the 2026 stage portrait on drginamerritt.net. Swap in a studio headshot if she prefers one (keep it 4:5, about 800×1000).
 
 Nothing else was added.
 
@@ -82,6 +83,7 @@ Nothing else was added.
 
 ## Changes in v3.2 (2026-11-18): launch readiness
 
+- Leadership section now shows a portrait of Dr. Merritt beside her bio.
 - Social share image (`assets/og-image.png`, 1200×630) with Open Graph and Twitter card tags, so links look right in texts, LinkedIn, and Slack.
 - Full favicon set: `favicon.ico`, 16/32 px PNGs, Apple touch icon, and a web manifest. Safari and iPhone home screens now get the mark.
 - Organization and WebSite structured data (JSON-LD) in the page head.
