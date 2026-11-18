@@ -1,4 +1,4 @@
-// PACT Vertical, site script v3.0 (2026-11-16)
+// PACT Vertical, site script v3.1 (2026-11-18)
 {
   const root = document.documentElement;
   root.classList.add('js');
@@ -48,7 +48,7 @@
   };
 
   // Scroll reveals (staggered within each parent)
-  const revealables = document.querySelectorAll('.reveal, .service, .vert-chart');
+  const revealables = document.querySelectorAll('.reveal, .service');
   const groups = new Map();
   revealables.forEach(el => {
     const p = el.parentElement;

@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 3.0 · **Date:** 2026-11-16 · Draft for review
+**Version:** 3.1 · **Date:** 2026-11-18 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -75,6 +75,18 @@ Nothing else was added.
 ## Still open
 
 - **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
+
+## Changes in v3.1 (2026-11-18)
+
+- Real photography replaces all drawn graphics. The steel-beam drawing in the hero and the bar chart in Verticality are gone.
+  - Hero: looking up at a steel-framed tower (`assets/hero-tower.jpg`), revealed upward once on load and then still.
+  - Full-width band after Services: aerial job site (`assets/site-aerial.jpg`).
+  - Verticality: wood-framed walls rising (`assets/framing.jpg`).
+  - Mission: crew on scaffolding behind a graphite overlay (`assets/crew-scaffold.jpg`).
+- Construction photos are toned to steel grey so they match the palette.
+- Checked at 1440, 1280, 820, 390, and 360 px widths. Nothing overflows on phones.
+
+**Photo sources:** all from Pexels (free license, no attribution required): d-goug, njeromin, enginakyurt, rois-martin. One more (mdrasel, rebar crew) was supplied but not used.
 
 ## Changes in v3.0 (steel redesign)
 
