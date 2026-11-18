@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 3.2 · **Date:** 2026-11-18 · Draft for review
+**Version:** 3.3 · **Date:** 2026-11-18 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -8,7 +8,8 @@ A static, single-page site for PACT Vertical, LLC. There is no build step and no
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home page with all sections |
+| `index.html` | Home page with all sections, including the contact form |
+| `api/contact.js` | Vercel serverless function behind the contact form. Sends email through Brevo |
 | `styles.css` | All styling |
 | `main.js` | Mobile menu, scroll reveals, footer year |
 | `privacy.html`, `terms.html` | Legal pages, served at `/privacy` and `/terms` |
@@ -31,7 +32,27 @@ Web files keep their standard names (`index.html` and so on) because Vercel and 
 3. In Vercel, go to **Add New → Project**, import the repo, and set **Framework Preset** to **Other**. Leave the build command and output directory empty, then deploy.
 4. Under **Settings → Domains**, add `pactvertical.com` and `www.pactvertical.com`, then update DNS at your registrar using the records Vercel shows you.
 
-5. **Turn on analytics.** In the Vercel project, open **Analytics** and click **Enable**, then redeploy once. The page already loads the analytics script, and it is cookieless, so no consent banner is needed. Until this is enabled the script simply returns 404 and nothing breaks.
+5. **Connect Brevo (contact form).** In the Vercel project, open **Settings → Environment Variables** and add:
+
+   | Variable | Value |
+   |---|---|
+   | `BREVO_API_KEY` | From Brevo → SMTP & API → API keys. Required. |
+   | `CONTACT_TO` | Inbox(es) that receive inquiries, comma-separated. Default `gmerritt@pactvertical.com`. |
+   | `BREVO_SENDER_EMAIL` | A sender verified in Brevo → Senders & Domains. Default `no-reply@pactvertical.com`. |
+   | `BREVO_SENDER_NAME` | Default `PACT Vertical`. |
+   | `BREVO_LIST_ID` | Optional. The numeric id of the Brevo list for the "keep me updated" box. Leave unset to skip list adds. |
+   | `SITE_URL` | Where the logo and links inside the emails point. Default `https://pactvertical.com`. Set it to `https://pactvertical.vercel.app` until DNS moves, then remove it. |
+
+   In Brevo, authenticate the **pactvertical.com** domain (Senders & Domains → Domains → add DKIM and DMARC records at the registrar) so the emails do not land in spam. Redeploy after adding variables. Until `BREVO_API_KEY` is set, the form shows a polite "not set up yet" message with the email address as a fallback.
+
+   **Emails the form sends:**
+   - *To PACT* (`CONTACT_TO`): "New inquiry: Name (Org) · Service" with every field, the message, and Reply-To set to the visitor so a plain reply answers them.
+   - *To the visitor:* "We received your inquiry, PACT Vertical" with a copy of what they sent, the two-business-day promise, and the phone number.
+   - *Optional list add:* when the visitor ticks the updates box and `BREVO_LIST_ID` is set, they are added to that list with FIRSTNAME, LASTNAME, ORGANIZATION, and SOURCE attributes. Brevo campaigns sent to that list carry Brevo's unsubscribe link automatically.
+
+   **Protections:** honeypot field, 1.5-second minimum submit time, per-IP rate limit (5 per 10 minutes per instance), server-side validation and length caps, HTML escaping in every email.
+
+6. **Turn on analytics.** In the Vercel project, open **Analytics** and click **Enable**, then redeploy once. The page already loads the analytics script, and it is cookieless, so no consent banner is needed. Until this is enabled the script simply returns 404 and nothing breaks.
 
 To preview locally, run `npx serve .` or open `index.html` in a browser.
 
@@ -75,11 +96,19 @@ Nothing else was added.
 3. **Project experience.** These are Gina's career projects (most through NREUV), and the site labels them that way. They are not PACT Vertical contracts.
 4. **Unit and cost totals.** The résumé has two conflicting versions (7,500 units / $2B and 3,000 units / $550M), so neither is on the site.
 5. **NREUV link.** The site links to https://nreuv.com.
-6. **Contact button.** It opens the visitor's email app. A form would need a service such as Formspree.
+6. **Contact form.** Sends through Brevo once `BREVO_API_KEY` is set in Vercel (see Deploy). Inquiries go to `CONTACT_TO`, default gmerritt@pactvertical.com.
 
 ## Still open
 
 - **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
+
+## Changes in v3.3 (2026-11-18): contact form and Brevo email
+
+- Real contact form in the Contact section (name, email, phone, organization, service, message, optional updates opt-in) replacing the mailto button. The email address stays visible as a fallback.
+- `api/contact.js` sends an inquiry email to PACT and a branded confirmation to the visitor through Brevo, and optionally adds opted-in visitors to a Brevo list. See Deploy step 5 for the variables.
+- Loading, success, and error states. A failed send always shows the error with the email address, never a false success.
+- Spam protection (honeypot, time check, rate limit) and validation on both sides.
+- Privacy policy updated to describe the form, Brevo, and the optional updates list.
 
 ## Changes in v3.2 (2026-11-18): launch readiness
 

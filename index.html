@@ -320,7 +320,65 @@
           <p class="eyebrow reveal">08 / Contact</p>
           <h2 class="big reveal">Let's build<br><span class="grad">what's next.</span></h2>
           <p class="reveal">Tell us about your project. Our team will evaluate your needs and the right suite of services for its size, goals, and budget.</p>
-          <a class="btn btn-primary magnetic reveal" href="mailto:gmerritt@pactvertical.com?subject=Project%20inquiry%20via%20pactvertical.com">Email us <span aria-hidden="true">&rarr;</span></a>
+
+          <form class="contact-form reveal" id="contact-form" action="/api/contact" method="post" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-name">Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120">
+                <p class="field-error" id="cf-name-error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254">
+                <p class="field-error" id="cf-email-error" role="alert"></p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-phone">Phone <span class="opt">optional</span></label>
+                <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40">
+              </div>
+              <div class="field">
+                <label for="cf-org">Organization <span class="opt">optional</span></label>
+                <input id="cf-org" name="organization" type="text" autocomplete="organization" maxlength="160">
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-type">What do you need?</label>
+              <select id="cf-type" name="projectType">
+                <option>Development Management</option>
+                <option>Design Management</option>
+                <option>Construction Management</option>
+                <option selected>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cf-message">About the project <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="cf-message" name="message" rows="5" required minlength="10" maxlength="4000" placeholder="Location, size, stage, timeline, and what you need help with."></textarea>
+              <p class="field-error" id="cf-message-error" role="alert"></p>
+            </div>
+            <label class="check">
+              <input type="checkbox" name="optIn">
+              <span>Keep me updated on PACT Vertical news and projects. Unsubscribe any time.</span>
+            </label>
+            <!-- Spam traps: bots fill the hidden field or submit too fast -->
+            <div class="hp" aria-hidden="true"><label for="cf-website">Website</label><input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <input type="hidden" name="t" id="cf-t" value="">
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit" id="cf-submit"><span class="btn-label">Send inquiry <span aria-hidden="true">&rarr;</span></span><span class="btn-busy" aria-hidden="true">Sending&hellip;</span></button>
+              <span class="form-alt">or email <a href="mailto:gmerritt@pactvertical.com">gmerritt@pactvertical.com</a></span>
+            </div>
+            <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+            <p class="form-consent">By sending, you agree to our <a href="/privacy">privacy policy</a>.</p>
+          </form>
+
+          <div class="form-success" id="contact-success" hidden tabindex="-1">
+            <p class="eyebrow">Received</p>
+            <h3>Thank you. We have your inquiry.</h3>
+            <p>A confirmation is on its way to your inbox, and our team will be in touch within two business days. For anything urgent, call <a href="tel:+12024600468">202-460-0468</a>.</p>
+            <button class="btn btn-ghost" type="button" id="cf-again">Send another message</button>
+          </div>
         </div>
         <dl class="contact-list reveal">
           <div><dt>Office</dt><dd>9183A Central Avenue<br>Capitol Heights, MD 20743</dd></div>

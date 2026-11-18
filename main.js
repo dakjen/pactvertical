@@ -1,4 +1,4 @@
-// PACT Vertical, site script v3.2 (2026-11-18)
+// PACT Vertical, site script v3.3 (2026-11-18)
 {
   const root = document.documentElement;
   root.classList.add('js');
@@ -79,6 +79,74 @@
     revealables.forEach(el => io.observe(el));
   } else {
     revealables.forEach(show);
+  }
+
+  // Contact form: client validation, loading state, success and error states
+  const form = document.getElementById('contact-form');
+  if (form) {
+    const status = document.getElementById('cf-status');
+    const success = document.getElementById('contact-success');
+    const submit = document.getElementById('cf-submit');
+    const tField = document.getElementById('cf-t');
+    const FALLBACK = 'gmerritt@pactvertical.com';
+    const stamp = () => { tField.value = String(Date.now()); };
+    stamp();
+
+    const fields = {
+      name: { el: form.elements.name, msg: 'Please enter your name.', ok: v => v.trim().length >= 2 },
+      email: { el: form.elements.email, msg: 'Please enter a valid email address.', ok: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) },
+      message: { el: form.elements.message, msg: 'Tell us a little about the project (at least 10 characters).', ok: v => v.trim().length >= 10 },
+    };
+    const setError = (key, msg) => {
+      const f = fields[key]; if (!f) return;
+      f.el.closest('.field').classList.toggle('invalid', !!msg);
+      f.el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      const box = document.getElementById(f.el.id + '-error'); if (box) box.textContent = msg || '';
+    };
+    const validate = () => {
+      let first = null;
+      Object.entries(fields).forEach(([k, f]) => {
+        const bad = !f.ok(f.el.value);
+        setError(k, bad ? f.msg : '');
+        if (bad && !first) first = f.el;
+      });
+      return first;
+    };
+    Object.entries(fields).forEach(([k, f]) => f.el.addEventListener('input', () => { if (f.ok(f.el.value)) setError(k, ''); }));
+
+    const showError = html => { status.className = 'form-status is-error'; status.innerHTML = html; };
+    const fallbackLink = `<a href="mailto:${FALLBACK}?subject=Project%20inquiry%20via%20pactvertical.com">${FALLBACK}</a>`;
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      status.className = 'form-status'; status.textContent = '';
+      const firstBad = validate();
+      if (firstBad) { firstBad.focus(); return; }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.optIn = form.elements.optIn.checked;
+      submit.disabled = true; submit.classList.add('busy');
+      try {
+        const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 20000);
+        const r = await fetch(form.action, { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(data), signal: ctrl.signal });
+        clearTimeout(timer);
+        let body = {}; try { body = await r.json(); } catch {}
+        if (r.ok && body.ok) {
+          form.hidden = true; success.hidden = false; success.focus();
+          form.reset(); stamp();
+          return;
+        }
+        if (body.fields) { Object.entries(body.fields).forEach(([k, m]) => setError(k, m)); const f = Object.keys(body.fields)[0]; fields[f] && fields[f].el.focus(); }
+        showError((body.error || 'Something went wrong and your message was not sent.') + (/@/.test(body.error || '') ? '' : ` Please email ${fallbackLink} instead.`));
+      } catch (err) {
+        showError(`We could not reach our server, so your message was not sent. Please email ${fallbackLink} instead.`);
+      } finally {
+        submit.disabled = false; submit.classList.remove('busy');
+      }
+    });
+
+    const again = document.getElementById('cf-again');
+    if (again) again.addEventListener('click', () => { success.hidden = true; form.hidden = false; stamp(); form.elements.name.focus(); });
   }
 
   // Cursor glow + card spotlight + logo tilt + magnetic buttons
