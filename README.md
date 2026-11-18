@@ -136,7 +136,7 @@ Nothing else was added.
 
 - Real photography replaces all drawn graphics. The steel-beam drawing in the hero and the bar chart in Verticality are gone.
   - Hero: looking up at a steel-framed tower (`assets/hero-tower.jpg`), revealed upward once on load and then still.
-  - Full-width band after Services: aerial job site (`assets/site-aerial.jpg`).
+  - Full-width band after Services: aerial of a project team on a concrete deck (`assets/site-crew.jpg`, Scott Blake on Unsplash, free license). Replaced the earlier rebar aerial (`assets/site-aerial.jpg`, kept in the folder).
   - Verticality: wood-framed walls rising (`assets/framing.jpg`).
   - Mission: crew on scaffolding behind a graphite overlay (`assets/crew-scaffold.jpg`).
 - Construction photos are toned to steel grey so they match the palette.
