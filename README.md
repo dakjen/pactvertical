@@ -37,7 +37,7 @@ Web files keep their standard names (`index.html` and so on) because Vercel and 
    | Variable | Value |
    |---|---|
    | `BREVO_API_KEY` | From Brevo → SMTP & API → API keys. Required. |
-   | `CONTACT_TO` | Inbox(es) that receive inquiries, comma-separated. Default `gmerritt@pactvertical.com`. |
+   | `CONTACT_TO` | Inbox(es) that receive inquiries, comma-separated. Default `gmerritt@nreuv.com`. |
    | `BREVO_SENDER_EMAIL` | A sender verified in Brevo → Senders & Domains. Default `no-reply@pactvertical.com`. |
    | `BREVO_SENDER_NAME` | Default `PACT Vertical`. |
    | `BREVO_LIST_ID` | Optional. The numeric id of the Brevo list for the "keep me updated" box. Leave unset to skip list adds. |
@@ -99,11 +99,12 @@ Two temporary settings point at `pactvertical.vercel.app` so link previews and e
 ## Please confirm before launch
 
 1. **Founding year.** The narrative PDF says January **2020**; your edited narrative (docx) says January **2021**. The site uses 2021.
-2. **Office address.** The site shows 9183A Central Avenue, Capitol Heights, MD 20743, but your résumé header says Greenbelt, MD.
-3. **Project experience.** These are Gina's career projects (most through NREUV), and the site labels them that way. They are not PACT Vertical contracts.
-4. **Unit and cost totals.** The résumé has two conflicting versions (7,500 units / $2B and 3,000 units / $550M), so neither is on the site.
-5. **NREUV link.** The site links to https://nreuv.com.
-6. **Contact form.** Sends through Brevo once `BREVO_API_KEY` is set in Vercel (see Deploy). Inquiries go to `CONTACT_TO`, default gmerritt@pactvertical.com.
+2. **Email address.** pactvertical.com has no mail server (no MX records), so nothing at @pactvertical.com can receive email. The site and the form use gmerritt@nreuv.com. If PACT Vertical should have its own address, set up mail for the domain (Google Workspace or GoDaddy email) and change `CONTACT_TO` plus the address shown on the site.
+3. **Office address.** The site shows 9183A Central Avenue, Capitol Heights, MD 20743, but your résumé header says Greenbelt, MD.
+4. **Project experience.** These are Gina's career projects (most through NREUV), and the site labels them that way. They are not PACT Vertical contracts.
+5. **Unit and cost totals.** The résumé has two conflicting versions (7,500 units / $2B and 3,000 units / $550M), so neither is on the site.
+6. **NREUV link.** The site links to https://nreuv.com.
+7. **Contact form.** Sends through Brevo once `BREVO_API_KEY` is set in Vercel (see Deploy). Inquiries go to `CONTACT_TO`, default gmerritt@nreuv.com.
 
 ## Still open
 

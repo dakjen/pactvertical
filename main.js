@@ -88,7 +88,7 @@
     const success = document.getElementById('contact-success');
     const submit = document.getElementById('cf-submit');
     const tField = document.getElementById('cf-t');
-    const FALLBACK = 'gmerritt@pactvertical.com';
+    const FALLBACK = 'gmerritt@nreuv.com';
     const stamp = () => { tField.value = String(Date.now()); };
     stamp();
 

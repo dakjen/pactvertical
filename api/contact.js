@@ -4,17 +4,17 @@
 //
 // Env vars (set in Vercel → Settings → Environment Variables):
 //   BREVO_API_KEY        required. Brevo → SMTP & API → API keys
-//   CONTACT_TO           inbox(es) that receive inquiries, comma-separated. Default: gmerritt@pactvertical.com
+//   CONTACT_TO           inbox(es) that receive inquiries, comma-separated. Default: gmerritt@nreuv.com
 //   BREVO_SENDER_EMAIL   a sender verified in Brevo. Default: no-reply@pactvertical.com
 //   BREVO_SENDER_NAME    Default: PACT Vertical
 //   BREVO_LIST_ID        optional. Numeric list id for the "keep me updated" opt-in. Omit to disable.
 //   SITE_URL             where email images and links point. Default https://pactvertical.com (set to the vercel.app URL until DNS moves)
 
 const BREVO = 'https://api.brevo.com/v3';
-const TO = (process.env.CONTACT_TO || 'gmerritt@pactvertical.com').split(',').map(s => s.trim()).filter(Boolean);
+const TO = (process.env.CONTACT_TO || 'gmerritt@nreuv.com').split(',').map(s => s.trim()).filter(Boolean);
 const SENDER = { name: process.env.BREVO_SENDER_NAME || 'PACT Vertical', email: process.env.BREVO_SENDER_EMAIL || 'no-reply@pactvertical.com' };
 const LIST_ID = Number(process.env.BREVO_LIST_ID) || 0;
-const FALLBACK = 'gmerritt@pactvertical.com';
+const FALLBACK = 'gmerritt@nreuv.com';
 const SITE = (process.env.SITE_URL || 'https://pactvertical.com').replace(/\/$/, '');
 
 const PROJECT_TYPES = ['Development Management', 'Design Management', 'Construction Management', 'Not sure yet'];
