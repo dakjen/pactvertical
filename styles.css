@@ -1,4 +1,4 @@
-/* PACT Vertical, site styles v3.1 (2026-11-18)
+/* PACT Vertical, site styles v3.2 (2026-11-18)
    VOICE: strong, structural, confident
    IDEA: structural steel going up; the building reaching for the sky (real photography)
    COLOUR: brushed light steel and graphite, logo maroon #882B2B as the one accent
@@ -15,7 +15,7 @@
   --graphite: #2E3338;
   --ink: #1C1F23;
   --text: #444B52;
-  --muted: #6B737B;
+  --muted: #5A636C;          /* steel-5; 5.0:1 on steel-1, 5.6:1 on steel-0 */
   --maroon: #882B2B;          /* logo maroon */
   --maroon-dark: #6E2222;
   --line: #C9CFD5;
@@ -226,6 +226,27 @@ main, .site-footer { position: relative; z-index: 1; }
 .footer-inner { display: flex; justify-content: space-between; gap: 12px; padding: 26px 0; flex-wrap: wrap; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: #fff; }
+.footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer-note { padding: 0 0 22px; font-size: .78rem; color: var(--steel-3); }
+.footer-note a { text-decoration: underline; }
+
+/* Sticky mobile CTA: appears once the hero is scrolled past (phones only) */
+.mobile-cta { display: none; }
+@media (max-width: 900px) {
+  .mobile-cta { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90; display: flex; justify-content: center; align-items: center; gap: 10px; min-height: 52px; background: var(--maroon); color: #fff; font-weight: 700; text-decoration: none; border-radius: 6px; box-shadow: 0 14px 30px -14px rgba(28,31,35,.7); transform: translateY(calc(100% + 24px)); transition: transform .4s var(--ease); }
+  .site-header.scrolled ~ .mobile-cta { transform: none; }
+  .mobile-cta:hover, .mobile-cta:active { background: var(--maroon-dark); }
+  .contact-section { padding-bottom: 120px; }
+}
+
+/* Legal pages */
+.legal { padding: 140px 0 100px; }
+.legal .wrap { max-width: 760px; }
+.legal h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; }
+.legal h2 { font-size: 1.35rem; margin-top: 2.2em; }
+.legal .updated { font-family: var(--mono); font-size: .8rem; color: var(--muted); margin-bottom: 2.5rem; }
+.legal ul { padding-left: 1.2em; }
+.legal a { color: var(--maroon); font-weight: 600; }
 
 /* Scroll reveal */
 .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
@@ -260,6 +281,7 @@ main, .site-footer { position: relative; z-index: 1; }
   .nav-toggle { display: block; }
   .nav { position: fixed; inset: 78px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 24px 24px; background: var(--steel-0); border-bottom: 1px solid var(--line); box-shadow: 0 16px 30px -20px rgba(28,31,35,.5); transform: translateY(-12px); opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s var(--ease); }
   .nav.open { opacity: 1; transform: none; pointer-events: auto; }
+  .nav { max-height: calc(100vh - 78px); max-height: calc(100dvh - 78px); overflow-y: auto; }
   .nav a { padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid var(--line); }
   .nav a::after { display: none; }
   .nav .nav-cta { margin: 16px 0 0; justify-content: center; text-align: center; border: 0; }

@@ -5,17 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PACT Vertical | Partners, Advisors, Contractors, Technicians</title>
   <meta name="description" content="PACT Vertical provides development management, design management, and construction management to the commercial real estate industry.">
-  <meta property="og:title" content="PACT Vertical">
-  <meta property="og:description" content="Partners, Advisors, Contractors, Technicians. Four assets in one.">
+  <meta property="og:site_name" content="PACT Vertical">
+  <meta property="og:title" content="PACT Vertical | Partners, Advisors, Contractors, Technicians">
+  <meta property="og:description" content="Development, design, and construction management for commercial real estate. Four assets in one.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pactvertical.com/">
-  <meta name="theme-color" content="#E1E5E8">
+  <meta property="og:image" content="https://pactvertical.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PACT Vertical: Partners, Advisors, Contractors, Technicians">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PACT Vertical | Partners, Advisors, Contractors, Technicians">
+  <meta name="twitter:description" content="Development, design, and construction management for commercial real estate. Four assets in one.">
+  <meta name="twitter:image" content="https://pactvertical.com/assets/og-image.png">
+  <meta name="theme-color" content="#E6E9EC">
   <link rel="canonical" href="https://pactvertical.com/">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://pactvertical.com/#organization",
+        "name": "PACT Vertical, LLC",
+        "alternateName": "PACT Vertical",
+        "url": "https://pactvertical.com/",
+        "logo": "https://pactvertical.com/assets/pact-vertical-logo.png",
+        "image": "https://pactvertical.com/assets/og-image.png",
+        "description": "PACT Vertical provides development management, design management, and construction management to the commercial real estate industry.",
+        "foundingDate": "2021-01",
+        "founder": { "@type": "Person", "name": "Gina Merritt", "honorificPrefix": "Dr.", "jobTitle": "CEO", "url": "https://drginamerritt.net" },
+        "telephone": "+1-202-460-0468",
+        "email": "gmerritt@pactvertical.com",
+        "address": { "@type": "PostalAddress", "streetAddress": "9183A Central Avenue", "addressLocality": "Capitol Heights", "addressRegion": "MD", "postalCode": "20743", "addressCountry": "US" },
+        "areaServed": ["Washington, DC", "Maryland", "Virginia"],
+        "knowsAbout": ["Development management", "Design management", "Construction management", "Value engineering", "Construction budgeting and cost estimating", "Trade management"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://pactvertical.com/#website",
+        "url": "https://pactvertical.com/",
+        "name": "PACT Vertical",
+        "publisher": { "@id": "https://pactvertical.com/#organization" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -53,8 +97,9 @@
           <span class="line"><span>PACT</span></span>
           <span class="line"><span class="outline">Vertical</span></span>
         </h1>
-        <p class="hero-rotator" aria-label="Partners, Advisors, Contractors, Technicians">
+        <p class="hero-rotator">
           <span class="rot-label">We are your</span>
+          <span class="sr">Partners, Advisors, Contractors, Technicians</span>
           <span class="rot-words" aria-hidden="true">
             <span>Partners</span>
             <span>Advisors</span>
@@ -285,10 +330,18 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>&copy; <span id="year">2026</span> PACT Vertical, LLC. All rights reserved.</span>
-      <a href="#top">Back to top &uarr;</a>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="#top">Back to top &uarr;</a>
+      </nav>
     </div>
+    <div class="wrap footer-note">This site uses cookieless Vercel Web Analytics for page-view counts only. No tracking cookies are set. <a href="/privacy">Privacy policy</a>.</div>
   </footer>
 
+  <a class="mobile-cta" href="#contact" aria-label="Contact PACT Vertical">Contact us <span aria-hidden="true">&rarr;</span></a>
+
   <script src="main.js" defer></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

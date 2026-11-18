@@ -1,6 +1,6 @@
 # PACT Vertical Website
 
-**Version:** 3.1 · **Date:** 2026-11-18 · Draft for review
+**Version:** 3.2 · **Date:** 2026-11-18 · Draft for review
 
 A static, single-page site for PACT Vertical, LLC. There is no build step and nothing to install. Vercel serves the files as they are.
 
@@ -11,10 +11,12 @@ A static, single-page site for PACT Vertical, LLC. There is no build step and no
 | `index.html` | Home page with all sections |
 | `styles.css` | All styling |
 | `main.js` | Mobile menu, scroll reveals, footer year |
+| `privacy.html`, `terms.html` | Legal pages, served at `/privacy` and `/terms` |
 | `404.html` | Not-found page |
-| `assets/` | Logo files and favicon |
+| `assets/` | Logo files, photos, favicons, and the social share image |
+| `favicon.ico`, `site.webmanifest` | Browser tab and home-screen icons |
 | `vercel.json` | Clean URLs, security headers, asset caching |
-| `robots.txt`, `sitemap.xml` | Search engine basics |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | Search engine and AI crawler basics |
 
 Web files keep their standard names (`index.html` and so on) because Vercel and browsers need them. The version and date are recorded here and in `VERSION`.
 
@@ -28,6 +30,8 @@ Web files keep their standard names (`index.html` and so on) because Vercel and 
    ```
 3. In Vercel, go to **Add New → Project**, import the repo, and set **Framework Preset** to **Other**. Leave the build command and output directory empty, then deploy.
 4. Under **Settings → Domains**, add `pactvertical.com` and `www.pactvertical.com`, then update DNS at your registrar using the records Vercel shows you.
+
+5. **Turn on analytics.** In the Vercel project, open **Analytics** and click **Enable**, then redeploy once. The page already loads the analytics script, and it is cookieless, so no consent banner is needed. Until this is enabled the script simply returns 404 and nothing breaks.
 
 To preview locally, run `npx serve .` or open `index.html` in a browser.
 
@@ -75,6 +79,21 @@ Nothing else was added.
 ## Still open
 
 - **Four asset descriptions.** The cards show only their titles, because there was no source text for them.
+
+## Changes in v3.2 (2026-11-18): launch readiness
+
+- Social share image (`assets/og-image.png`, 1200×630) with Open Graph and Twitter card tags, so links look right in texts, LinkedIn, and Slack.
+- Full favicon set: `favicon.ico`, 16/32 px PNGs, Apple touch icon, and a web manifest. Safari and iPhone home screens now get the mark.
+- Organization and WebSite structured data (JSON-LD) in the page head.
+- `llms.txt` describing the firm for AI assistants, and `robots.txt` now explicitly welcomes AI crawlers.
+- Privacy Policy and Terms of Use pages in the site design, linked in the footer. **Please skim both; they are honest boilerplate for a site with no forms or cookies.**
+- Vercel Web Analytics script added (cookieless) with a one-line notice in the footer. Needs enabling in the Vercel dashboard (see Deploy).
+- Sticky "Contact us" button on phones, shown after the visitor scrolls past the hero.
+- Contrast fix: the muted grey text color darkened from `#6B737B` to `#5A636C` so stat labels, project locations, and the "VERTICAL" wordmark all pass WCAG AA (4.5:1).
+- 404 page restyled to match the steel design, with a contact button.
+- Extra security headers (Permissions-Policy, HSTS) and `/index.html` redirects to `/`.
+- Mobile menu scrolls instead of being cut off on short phone screens.
+- Removed the stale "Adding images" instructions (the placeholders are gone).
 
 ## Changes in v3.1 (2026-11-18)
 
@@ -137,17 +156,3 @@ Nothing else was added.
 - The Verticality section now uses the site's actual wording.
 - Hero now uses the site's banner content: "PACT Vertical / Partners, Advisors, Contractors, Technicians / 4:1 four assets in one."
 - Added the logo mark.
-
-## Adding images
-
-Put photos in `assets/`. Then replace each placeholder block. For example, change
-
-```html
-<div class="hero-photo" ...><span class="ph-tag">[INSERT: …]</span></div>
-```
-
-to
-
-```html
-<div class="hero-photo"><img src="/assets/hero.jpg" alt="Describe the photo" style="width:100%;height:100%;object-fit:cover"></div>
-```

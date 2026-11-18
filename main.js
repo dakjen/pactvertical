@@ -1,4 +1,4 @@
-// PACT Vertical, site script v3.1 (2026-11-18)
+// PACT Vertical, site script v3.2 (2026-11-18)
 {
   const root = document.documentElement;
   root.classList.add('js');
