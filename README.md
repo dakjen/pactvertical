@@ -93,7 +93,7 @@ Nothing else was added.
 
 Two temporary settings point at `pactvertical.vercel.app` so link previews and emails work before the domain moves. Once pactvertical.com serves from Vercel:
 
-1. In `index.html`, `privacy.html`, and `terms.html`, change the `og:image` and `twitter:image` URLs back to `https://pactvertical.com/assets/og-image.png`.
+1. In `index.html`, `privacy.html`, and `terms.html`, change the `og:url`, `og:image`, and `twitter:image` URLs back to `https://pactvertical.com/...`. (`og:url` matters most: link previewers follow it, so while it points at a domain served by the old host, texts show the old site's preview.)
 2. In Vercel → Settings → Environment Variables, delete `SITE_URL`.
 
 ## Please confirm before launch
