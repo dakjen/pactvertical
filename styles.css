@@ -235,8 +235,11 @@ main, .site-footer { position: relative; z-index: 1; }
 @media (max-width: 900px) {
   .mobile-cta { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90; display: flex; justify-content: center; align-items: center; gap: 10px; min-height: 52px; background: var(--maroon); color: #fff; font-weight: 700; text-decoration: none; border-radius: 6px; box-shadow: 0 14px 30px -14px rgba(28,31,35,.7); transform: translateY(calc(100% + 24px)); transition: transform .4s var(--ease); }
   .site-header.scrolled ~ .mobile-cta { transform: none; }
+  :root.cta-off .mobile-cta, :root.cta-off .site-header.scrolled ~ .mobile-cta { transform: translateY(calc(100% + 24px)); }
   .mobile-cta:hover, .mobile-cta:active { background: var(--maroon-dark); }
-  .contact-section { padding-bottom: 120px; }
+  /* Tap targets: at least 24px tall (WCAG 2.5.8), 44px where practical */
+  .text-link, .site-footer a, .contact-list a { padding-block: 8px; }
+  .footer-links { gap: 8px 22px; }
 }
 
 /* Legal pages */

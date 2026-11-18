@@ -33,6 +33,17 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // Hide the sticky mobile CTA once the visitor reaches the contact section or footer
+  const endZones = [document.getElementById('contact'), document.querySelector('.site-footer')].filter(Boolean);
+  if (endZones.length && 'IntersectionObserver' in window) {
+    const seen = new Set();
+    const zoneIo = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
+      root.classList.toggle('cta-off', seen.size > 0);
+    }, { rootMargin: '0px 0px -30% 0px' });
+    endZones.forEach(z => zoneIo.observe(z));
+  }
+
   // Count-up numbers
   const countUp = el => {
     const end = +el.dataset.count, start = +(el.dataset.from || 0);

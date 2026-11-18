@@ -88,7 +88,8 @@ Nothing else was added.
 - `llms.txt` describing the firm for AI assistants, and `robots.txt` now explicitly welcomes AI crawlers.
 - Privacy Policy and Terms of Use pages in the site design, linked in the footer. **Please skim both; they are honest boilerplate for a site with no forms or cookies.**
 - Vercel Web Analytics script added (cookieless) with a one-line notice in the footer. Needs enabling in the Vercel dashboard (see Deploy).
-- Sticky "Contact us" button on phones, shown after the visitor scrolls past the hero.
+- Sticky "Contact us" button on phones, shown after the visitor scrolls past the hero and hidden again at the Contact section and footer.
+- Text links and footer links have larger tap areas on phones.
 - Contrast fix: the muted grey text color darkened from `#6B737B` to `#5A636C` so stat labels, project locations, and the "VERTICAL" wordmark all pass WCAG AA (4.5:1).
 - 404 page restyled to match the steel design, with a contact button.
 - Extra security headers (Permissions-Policy, HSTS) and `/index.html` redirects to `/`.
