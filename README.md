@@ -89,6 +89,13 @@ v3.0 adds a steel neutral scale (`#F4F5F6` to `#2E3338` graphite) alongside the 
 
 Nothing else was added.
 
+## When DNS moves to Vercel
+
+Two temporary settings point at `pactvertical.vercel.app` so link previews and emails work before the domain moves. Once pactvertical.com serves from Vercel:
+
+1. In `index.html`, `privacy.html`, and `terms.html`, change the `og:image` and `twitter:image` URLs back to `https://pactvertical.com/assets/og-image.png`.
+2. In Vercel → Settings → Environment Variables, delete `SITE_URL`.
+
 ## Please confirm before launch
 
 1. **Founding year.** The narrative PDF says January **2020**; your edited narrative (docx) says January **2021**. The site uses 2021.
